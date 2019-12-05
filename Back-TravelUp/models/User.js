@@ -12,12 +12,12 @@ const userSchema = new Schema({
   trip: [
     {
       Type: Schema.Types.ObjectId,
-      Ref: "Trip"
+      Ref: ""
     }
   ]
 });
 
-console.log("juste pour faire le commit 1");
+console.log("juste pour faire le commit ");
 const userModel = mongoose.model("User", userSchema);
 
 module.exports = userModel;
