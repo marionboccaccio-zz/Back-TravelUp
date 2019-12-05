@@ -17,6 +17,7 @@ const userSchema = new Schema({
   ]
 });
 
+console.log("juste pour faire le commit");
 const userModel = mongoose.model("User", userSchema);
 
 module.exports = userModel;
