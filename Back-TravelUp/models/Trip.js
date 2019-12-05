@@ -21,7 +21,7 @@ const tripSchema = new Schema([
   }
 ]);
 
-console.log("juste pour faire le commit");
+console.log("juste pour faire le commit 1");
 const tripModel = mongoose.model("Trip", tripSchema);
 
 module.exports = tripModel;
