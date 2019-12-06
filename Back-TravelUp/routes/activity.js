@@ -1,10 +1,10 @@
 const express = require("express");
-const accomodationModel = require("../models/Accomodation");
+const activityModel = require("../models/Activity");
 const router = new express.Router();
 
 router.get("/", (req, res) => {
   console.log("hello");
-  accomodationModel
+  activityModel
     .find()
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  accomodationModel
+  activityModel
     .findById(req.params.id)
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  accomodationModel
+  activityModel
     .create(req.body)
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  accomodationModel
+  activityModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -50,7 +50,7 @@ router.delete("/:id", (req, res) => {
 });
 
 router.patch("/:id", (req, res) => {
-  accomodationModel
+  activityModel
     .findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(dbRes => {
       res.status(200).send(dbRes);

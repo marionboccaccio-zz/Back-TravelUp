@@ -7,8 +7,8 @@ const transportationSchema = new Schema({
     type: String,
     enum: ["flight", "train", "bus", "car", "foot"]
   },
-  startPoint: { lat, lng },
-  endPoint: { lat, lng },
+  startPoint: Number,
+  endPoint: Number,
   date: Date,
   tripId: {
     type: Schema.Types.ObjectId,

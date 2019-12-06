@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const activitySchema = new Schema({
   description: String,
   adress: String,
-  coordinates: { lat, lng },
+  coordinates: Number,
   date: Date,
   tripId: {
     type: Schema.Types.ObjectId,
