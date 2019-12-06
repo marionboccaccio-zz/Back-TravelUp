@@ -25,8 +25,6 @@ const tripSchema = new Schema([
           type: Schema.Types.ObjectId,
           ref: "Activity"
         },
-        startDate: Date,
-        endDate: Date
       }
     ]
   }
