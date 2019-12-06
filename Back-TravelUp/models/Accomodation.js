@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const accomodationSchema = new Schema({
   name: String,
   address: String,
-  coordinates: { lat, lng },
+  coordinates: Number,
   bookingRef: String,
   startDate: Date,
   endDate: Date,
@@ -15,6 +15,6 @@ const accomodationSchema = new Schema({
   }
 });
 
-const accomodationtModel = mongoose.model("Accomodation", accomodationSchema);
+const accomodationModel = mongoose.model("Accomodation", accomodationSchema);
 
-module.exports = accomodationtModel;
+module.exports = accomodationModel;

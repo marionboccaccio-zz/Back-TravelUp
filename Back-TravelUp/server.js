@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(cors("*"));
 
+app.use("/api/trips", require("./routes/trip"));
+app.use("/api/accomodations", require("./routes/accomodation"));
+
 app.listen(process.env.PORT, () => {
   console.log("Server listening on port http://localhost:", process.env.PORT);
 });
