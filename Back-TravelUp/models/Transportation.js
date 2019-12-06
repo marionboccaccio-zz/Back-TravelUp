@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const transportationSchema = new Schema({
-  transport: String,
+  transport: {
+    type: String,
+    enum: ["flight", "train", "bus", "car", "foot"]
+  },
   startPoint: { lat, lng },
   endPoint: { lat, lng },
   date: Date,

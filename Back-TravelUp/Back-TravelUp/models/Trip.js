@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tripSchema = new Schema(
+const tripSchema = new Schema([
   {
     user: {
       Type: Schema.Types.ObjectId,
@@ -18,7 +18,7 @@ const tripSchema = new Schema(
       }
     ]
   }
-);
+]);
 
 const tripModel = mongoose.model("Trip", tripSchema);
 

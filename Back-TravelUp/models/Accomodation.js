@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const accomodationSchema = new Schema({
   name: String,
-  adress: String,
+  address: String,
   coordinates: { lat, lng },
   bookingRef: String,
   startDate: Date,
