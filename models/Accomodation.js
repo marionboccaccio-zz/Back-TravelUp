@@ -9,9 +9,9 @@ const accomodationSchema = new Schema({
   bookingRef: String,
   startDate: Date,
   endDate: Date,
-  tripId: {
+  itineraryId: {
     type: Schema.Types.ObjectId,
-    ref: "Trip"
+    ref: "Itinerary"
   }
 });
 

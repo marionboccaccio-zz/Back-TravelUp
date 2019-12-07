@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors("*"));
 
-app.use("/api/trips", require("./routes/trip"));
+app.use("/api/itineraries", require("./routes/itinerary"));
 app.use("/api/accomodations", require("./routes/accomodation"));
 app.use("/api/transportations", require("./routes/transportation"));
 app.use("/api/activities", require("./routes/activity"));

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tripSchema = new Schema([
+const itinerarySchema = new Schema([
   {
     user: {
       type: Schema.Types.ObjectId,
@@ -30,6 +30,6 @@ const tripSchema = new Schema([
   }
 ]);
 
-const tripModel = mongoose.model("Trip", tripSchema);
+const itineraryModel = mongoose.model("Itinerary", itinerarySchema);
 
-module.exports = tripModel;
+module.exports = itineraryModel;

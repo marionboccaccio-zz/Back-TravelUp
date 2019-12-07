@@ -1,10 +1,10 @@
 const express = require("express");
-const tripModel = require("../models/Trip");
+const itineraryModel = require("../models/Itinerary");
 const router = new express.Router();
 
 router.get("/", (req, res) => {
-    console.log("hello");
-    tripModel
+  console.log("hello");
+  itineraryModel
     .find()
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -16,11 +16,11 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    tripModel
+  itineraryModel
     .findById(req.params.id)
-    .populate ("transportation")
-    .populate ( "accomodation")
-    .populate ( "activity")
+    .populate("transportation")
+    .populate("accomodation")
+    .populate("activity")
     .then(dbRes => {
       res.status(200).send(dbRes);
     })
@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    tripModel
+  itineraryModel
     .create(req.body)
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-    tripModel
+  itineraryModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
       res.status(200).send(dbRes);
@@ -53,7 +53,7 @@ router.delete("/:id", (req, res) => {
 });
 
 router.patch("/:id", (req, res) => {
-    tripModel
+  itineraryModel
     .findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(dbRes => {
       res.status(200).send(dbRes);

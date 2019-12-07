@@ -10,9 +10,9 @@ const transportationSchema = new Schema({
   startPoint: Number,
   endPoint: Number,
   date: Date,
-  tripId: {
+  itineraryId: {
     type: Schema.Types.ObjectId,
-    ref: "Trip"
+    ref: "Itinerary"
   }
 });
 
