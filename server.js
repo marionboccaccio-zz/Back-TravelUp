@@ -7,10 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(cors("*"));
 
-app.use("/api/trips", require("./routes/trip"));
-app.use("/api/accomodations", require("./routes/accomodation"));
-app.use("/api/transportations", require("./routes/transportation"));
-app.use("/api/activities", require("./routes/activity"));
+app.use("/itineraries", require("./routes/itinerary"));
+app.use("/accomodations", require("./routes/accomodation"));
+app.use("/transportations", require("./routes/transportation"));
+app.use("/activities", require("./routes/activity"));
 
 app.listen(process.env.PORT, () => {
   console.log("Server listening on port http://localhost:", process.env.PORT);
