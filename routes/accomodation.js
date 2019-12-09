@@ -2,7 +2,7 @@ const express = require("express");
 const accomodationModel = require("../models/Accomodation");
 const router = new express.Router();
 
-router.get("/itinerary/:id", (req, res) => {
+router.get("/itinerary", (req, res) => {
   console.log("hello");
   accomodationModel
     .find()

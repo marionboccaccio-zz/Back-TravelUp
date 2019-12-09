@@ -2,7 +2,7 @@ const express = require("express");
 const itineraryModel = require("../models/Itinerary");
 const router = new express.Router();
 
-router.get("/itinerary/:id", (req, res) => {
+router.get("/itinerary/", (req, res) => {
   itineraryModel
     .find()
     .then(dbRes => {
@@ -29,13 +29,16 @@ router.get("/itinerary/:id", (req, res) => {
     });
 });
 
-router.post("/itinerary/:id", (req, res) => {
+router.post("/itinerary", (req, res) => {
+  console.log(req.body);
+  console.log("ici");
   itineraryModel
     .create(req.body)
     .then(dbRes => {
       res.status(200).json(dbRes);
     })
     .catch(err => {
+      console.log(err);
       res.status(500).json(err);
     });
 });

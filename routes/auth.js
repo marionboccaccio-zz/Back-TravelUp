@@ -21,9 +21,9 @@ const minPasswordLength = 4;
 
 router.post("/signup", uploader.single("avatar"), (req, res, next) => {
   // console.log("file ?", req.file);
-  // console.log(req.body);
+  console.log(req.body);
   var errorMsg = "";
-  const { username, password, email } = req.body;
+  const { firstname, lastName, password, email } = req.body;
   // @todo : best if email validation here or check with a regex in the User model
   if (!password || !email) errorMsg += "Provide email and password.\n";
 
@@ -37,7 +37,8 @@ router.post("/signup", uploader.single("avatar"), (req, res, next) => {
   const hashPass = bcrypt.hashSync(password, salt);
 
   const newUser = {
-    username,
+    firstname,
+    lastName,
     email,
     password: hashPass
   };
@@ -57,6 +58,7 @@ router.post("/signup", uploader.single("avatar"), (req, res, next) => {
             .json("Something went wrong with automatic login after signup");
         // all good
         res.status(200).json(req.user);
+        props.history.push("/itinerary-planner");
       });
     })
     .catch(apiErr => {
@@ -106,11 +108,11 @@ router.post("/signout", (req, res, next) => {
 router.use("/is-loggedin", (req, res, next) => {
   if (req.isAuthenticated()) {
     // method provided by passport
-    const { _id, username, email, avatar } = req.user;
+    const { _id, firstname, email, avatar } = req.user;
     return res.status(200).json({
       currentUser: {
         _id,
-        username,
+        firstname,
         email,
         avatar
       }

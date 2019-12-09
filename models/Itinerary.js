@@ -13,10 +13,12 @@ const itinerarySchema = new Schema([
       {
         country: String,
         city: String,
-        transportation: {
-          type: Schema.Types.ObjectId,
-          ref: "Transportation"
-        },
+        transportation: [
+          {
+            type: Schema.Types.ObjectId,
+            ref: "Transportation"
+          }
+        ],
         accomodation: [
           {
             type: Schema.Types.ObjectId,
