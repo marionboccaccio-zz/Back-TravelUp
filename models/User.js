@@ -4,15 +4,14 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   _id: ObjectId,
-  countryOfResidence: String,
   firstName: String,
   lastName: String,
   email: String,
   password: String,
-  trip: [
+  itineraries: [
     {
       Type: Schema.Types.ObjectId,
-      Ref: "Trip"
+      Ref: "Itinerary"
     }
   ]
 });
