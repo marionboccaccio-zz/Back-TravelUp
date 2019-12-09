@@ -12,6 +12,12 @@ app.use("/accomodations", require("./routes/accomodation"));
 app.use("/transportations", require("./routes/transportation"));
 app.use("/activities", require("./routes/activity"));
 
+function isLoggedIn(req, res, next) {
+  req.session.currentUser = "fuiehfuaiufheaifafafaefafa";
+}
+
+app.use(isLoggedIn);
+
 app.listen(process.env.PORT, () => {
   console.log("Server listening on port http://localhost:", process.env.PORT);
 });

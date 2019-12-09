@@ -7,9 +7,9 @@ const activitySchema = new Schema({
   adress: String,
   coordinates: Number,
   date: Date,
-  tripId: {
+  itineraryId: {
     type: Schema.Types.ObjectId,
-    ref: "Trip"
+    ref: "Itinerary"
   }
 });
 

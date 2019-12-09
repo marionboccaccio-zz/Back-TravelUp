@@ -7,12 +7,12 @@ const transportationSchema = new Schema({
     type: String,
     enum: ["flight", "train", "bus", "car", "foot"]
   },
-  startPoint: Number,
-  endPoint: Number,
+  startPoint: String,
+  endPoint: String,
   date: Date,
-  tripId: {
+  itineraryId: {
     type: Schema.Types.ObjectId,
-    ref: "Trip"
+    ref: "Itinerary"
   }
 });
 
