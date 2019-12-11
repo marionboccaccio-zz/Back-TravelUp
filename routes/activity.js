@@ -1,6 +1,7 @@
 const express = require("express");
 const activityModel = require("../models/Activity");
 const router = new express.Router();
+const itineraryModel = require("../models/Itinerary");
 
 router.get("/activity", (req, res) => {
   console.log("hello");
@@ -27,11 +28,23 @@ router.get("/activity/:id", (req, res) => {
     });
 });
 
-router.post("/activity", (req, res) => {
+router.post("/activity/:itineraryId/:stepId", (req, res) => {
   activityModel
     .create(req.body)
     .then(dbRes => {
-      res.status(200).json(dbRes);
+      itineraryModel
+        .findOneAndUpdate(
+          {
+            _id: req.params.itineraryId,
+            "steps._id": req.params.stepId
+          },
+          { $addToSet: { "steps.$.activity": dbRes._id } },
+          { new: true }
+        )
+        .then(dbRes2 => {
+          res.status(200).json(dbRes2);
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => {
       res.status(500).json(err);
