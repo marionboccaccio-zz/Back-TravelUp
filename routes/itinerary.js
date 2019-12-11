@@ -17,7 +17,7 @@ router.get("/itinerary/", (req, res) => {
 router.get("/itinerary/:id", (req, res) => {
   itineraryModel
     .findById(req.params.id)
-    .populate("transportation")
+    .populate("steps.transportation")
     .populate("accomodation")
     .populate("activity")
     .then(dbRes => {

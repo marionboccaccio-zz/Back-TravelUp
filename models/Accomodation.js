@@ -5,10 +5,9 @@ const Schema = mongoose.Schema;
 const accomodationSchema = new Schema({
   name: String,
   address: String,
-  coordinates: Number,
   bookingRef: String,
-  startDate: Date,
-  endDate: Date,
+  checkIn: Date,
+  checkOut: Date,
   itineraryId: {
     type: Schema.Types.ObjectId,
     ref: "Itinerary"

@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const activitySchema = new Schema({
   description: String,
-  adress: String,
-  coordinates: Number,
+  address: String,
+  bookingRef: String,
   date: Date,
   itineraryId: {
     type: Schema.Types.ObjectId,

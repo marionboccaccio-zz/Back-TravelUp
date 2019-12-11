@@ -1,8 +1,9 @@
 const express = require("express");
 const transportationModel = require("../models/Transportation");
 const router = new express.Router();
+const itineraryModel = require("../models/Itinerary");
 
-router.get("/itinerary/:id", (req, res) => {
+router.get("/transportation", (req, res) => {
   console.log("hello");
   transportationModel
     .find()
@@ -15,7 +16,7 @@ router.get("/itinerary/:id", (req, res) => {
     });
 });
 
-router.get("/itinerary/:id", (req, res) => {
+router.get("/transportation/:id", (req, res) => {
   transportationModel
     .findById(req.params.id)
     .then(dbRes => {
@@ -27,18 +28,32 @@ router.get("/itinerary/:id", (req, res) => {
     });
 });
 
-router.post("/itinerary/:id", (req, res) => {
+router.post("/transportation/:itineraryId/:stepId", (req, res) => {
+  // console.log(req.params);
+  console.log(req.body);
   transportationModel
     .create(req.body)
     .then(dbRes => {
-      res.status(200).json(dbRes);
+      itineraryModel
+        .findOneAndUpdate(
+          {
+            _id: req.params.itineraryId,
+            "steps._id": req.params.stepId
+          },
+          { $addToSet: { "steps.$.transportation": dbRes._id } },
+          { new: true }
+        )
+        .then(dbRes2 => {
+          res.status(200).json(dbRes2);
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => {
       res.status(500).json(err);
     });
 });
 
-router.delete("/itinerary/:id", (req, res) => {
+router.delete("/transportation/:id", (req, res) => {
   transportationModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
@@ -49,7 +64,7 @@ router.delete("/itinerary/:id", (req, res) => {
     });
 });
 
-router.patch("/itinerary/:id", (req, res) => {
+router.patch("/transportation/:id", (req, res) => {
   transportationModel
     .findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(dbRes => {

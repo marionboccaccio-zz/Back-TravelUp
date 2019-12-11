@@ -2,7 +2,7 @@ const express = require("express");
 const activityModel = require("../models/Activity");
 const router = new express.Router();
 
-router.get("/itinerary/:id", (req, res) => {
+router.get("/activity", (req, res) => {
   console.log("hello");
   activityModel
     .find()
@@ -15,7 +15,7 @@ router.get("/itinerary/:id", (req, res) => {
     });
 });
 
-router.get("/itinerary/:id", (req, res) => {
+router.get("/activity/:id", (req, res) => {
   activityModel
     .findById(req.params.id)
     .then(dbRes => {
@@ -27,7 +27,7 @@ router.get("/itinerary/:id", (req, res) => {
     });
 });
 
-router.post("/itinerary/:id", (req, res) => {
+router.post("/activity", (req, res) => {
   activityModel
     .create(req.body)
     .then(dbRes => {
@@ -38,7 +38,7 @@ router.post("/itinerary/:id", (req, res) => {
     });
 });
 
-router.delete("/itinerary/:id", (req, res) => {
+router.delete("/activity/:id", (req, res) => {
   activityModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
@@ -49,7 +49,7 @@ router.delete("/itinerary/:id", (req, res) => {
     });
 });
 
-router.patch("/itinerary/:id", (req, res) => {
+router.patch("/activity/:id", (req, res) => {
   activityModel
     .findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(dbRes => {
