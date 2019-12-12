@@ -10,7 +10,7 @@ const transportationSchema = new Schema({
   startPoint: String,
   endPoint: String,
   bookingRef: String,
-  departureDate: Date,
+  startDate: Date,
   itineraryId: {
     type: Schema.Types.ObjectId,
     ref: "Itinerary"

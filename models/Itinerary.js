@@ -9,6 +9,8 @@ const itinerarySchema = new Schema([
     },
     title: String, //est-ce ici qu'on limite le nb de caractères?
     description: String,
+    startDate: Date,
+    endDate: Date,
     steps: [
       {
         country: String,

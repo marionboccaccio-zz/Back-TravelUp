@@ -6,7 +6,7 @@ const activitySchema = new Schema({
   description: String,
   address: String,
   bookingRef: String,
-  date: Date,
+  startDate: Date,
   itineraryId: {
     type: Schema.Types.ObjectId,
     ref: "Itinerary"

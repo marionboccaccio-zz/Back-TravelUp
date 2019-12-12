@@ -6,8 +6,8 @@ const accomodationSchema = new Schema({
   name: String,
   address: String,
   bookingRef: String,
-  checkIn: Date,
-  checkOut: Date,
+  startDate: Date,
+  endDate: Date,
   itineraryId: {
     type: Schema.Types.ObjectId,
     ref: "Itinerary"
