@@ -32,7 +32,12 @@ const itinerarySchema = new Schema([
           }
         ]
       }
-    ]
+    ],
+    itineraryImage: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/parina/image/upload/v1576152270/travel-up/guilherme-stecanella-_dH-oQF9w-Y-unsplash_fjwnrp.jpg"
+    }
   }
 ]);
 
