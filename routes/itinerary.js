@@ -2,6 +2,7 @@ const express = require("express");
 const itineraryModel = require("../models/Itinerary");
 const router = new express.Router();
 const uploadImage = require("../config/cloudinary");
+
 router.get("/itinerary/", (req, res) => {
   itineraryModel
     .find()
@@ -35,13 +36,22 @@ router.post("/itinerary", uploadImage.single("itineraryImage"), (req, res) => {
   if (req.file) itinerary.itineraryImage = req.file.secure_url;
 
   console.log("ici", itinerary);
+  itineraryModel.create(itinerary);
+  // router.post("/itinerary", uploader.single("itineraryImage"), (req, res) => {
+  //   console.log(req.body);
+  //   console.log(req.file);
+  //   const newItinerary = JSON.parse(req.body.fields);
+  //   if (req.file) newItinerary.itineraryImage = req.file.secure_url;
+  //   // console.log("newItinerary ? :", newItinerary);
+  //   console.log("newItinerary ? :", newItinerary.steps);
+  //   console.log("newItinerary ? :", newItinerary.description);
+
   itineraryModel
-    .create(itinerary)
+    .create(newItinerary)
     .then(dbRes => {
       res.status(200).json(dbRes);
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json(err);
     });
 });
