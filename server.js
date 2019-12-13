@@ -24,7 +24,7 @@ app.use(
 );
 
 const corsOptions = {
-  origin: [process.env.FRONTEND_URL],
+  origin: process.env.FRONTEND_URL,
   /* credentials : Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials */
   credentials: true,
   optionsSuccessStatus: 200
