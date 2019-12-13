@@ -35,19 +35,9 @@ router.post("/itinerary", uploadImage.single("itineraryImage"), (req, res) => {
   const itinerary = JSON.parse(req.body.fields);
   if (req.file) itinerary.itineraryImage = req.file.secure_url;
 
-  console.log("ici", itinerary);
-  itineraryModel.create(itinerary);
-  // router.post("/itinerary", uploader.single("itineraryImage"), (req, res) => {
-  //   console.log(req.body);
-  //   console.log(req.file);
-  //   const newItinerary = JSON.parse(req.body.fields);
-  //   if (req.file) newItinerary.itineraryImage = req.file.secure_url;
-  //   // console.log("newItinerary ? :", newItinerary);
-  //   console.log("newItinerary ? :", newItinerary.steps);
-  //   console.log("newItinerary ? :", newItinerary.description);
+  
 
-  itineraryModel
-    .create(newItinerary)
+  itineraryModel.create(itinerary);
     .then(dbRes => {
       res.status(200).json(dbRes);
     })
