@@ -10,7 +10,7 @@ router.get("/itinerary/", (req, res) => {
       res.status(200).json(dbRes);
     })
     .catch(err => {
-      console.log(err);
+      console.log("err", err);
       res.status(500).json(err);
     });
 });
